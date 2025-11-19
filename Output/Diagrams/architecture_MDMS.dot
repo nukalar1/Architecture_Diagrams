@@ -1,0 +1,25 @@
+digraph Architecture {
+	rankdir=LR
+	splines=true
+	nodesep=0.4
+	ranksep=0.6
+	ISU [shape=box]
+	MDMS [shape=box]
+	MV90 [shape=box]
+	NMS [shape=box]
+	Netcomm [shape=box]
+	subgraph cluster_legend {
+		rank=sink
+		legend [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2"><TR><TD><FONT POINT-SIZE="8" COLOR="red">&#9632;</FONT></TD><TD><FONT POINT-SIZE="8">File-based interfaces</FONT></TD></TR><TR><TD><FONT POINT-SIZE="8" COLOR="blue">&#9632;</FONT></TD><TD><FONT POINT-SIZE="8">Webservice interfaces</FONT></TD></TR></TABLE>> shape=none]
+	}
+	legend -> ISU [constraint=true style=invis weight=100]
+	NMS -> MDMS [label="Interval Data" color=red dir=forward fontcolor=red fontsize=10 labelangle=0 labeldistance=1.0]
+	NMS -> MDMS [label=Ping color=blue dir=both fontcolor=blue fontsize=10 labelangle=0 labeldistance=1.0]
+	NMS -> MDMS [label=LSV color=blue dir=both fontcolor=blue fontsize=10 labelangle=0 labeldistance=1.0]
+	MV90 -> MDMS [label="Interval Data" color=red dir=forward fontcolor=red fontsize=10 labelangle=0 labeldistance=1.0]
+	Netcomm -> MDMS [label="Interval Data" color=red dir=forward fontcolor=red fontsize=10 labelangle=0 labeldistance=1.0]
+	ISU -> MDMS [label="Meter Create" color=blue dir=both fontcolor=blue fontsize=10 labelangle=0 labeldistance=1.0]
+	ISU -> MDMS [label="Meter Installation" color=blue dir=both fontcolor=blue fontsize=10 labelangle=0 labeldistance=1.0]
+	ISU -> MDMS [label="Billing Request" color=red dir=forward fontcolor=red fontsize=10 labelangle=0 labeldistance=1.0]
+	MDMS -> ISU [label="Billing Response" color=red dir=forward fontcolor=red fontsize=10 labelangle=0 labeldistance=1.0]
+}
